@@ -1,0 +1,42 @@
+version: '3.7'
+services:
+  cafebean-backend:
+    image: janmejaym1/cafebean-backend
+    ports:
+      - 8080:8080
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/cafebean
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=12345
+    networks:
+      - springboot-mysql-network
+  cafebean-frontend:
+    image: janmejaym1/cafebean-frontend
+    ports:
+      - 3000:3000
+    networks:
+      - springboot-mysql-network
+  mysqldb:
+    image: mysql:8.0.33
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_DATABASE=cafebean
+      - MYSQL_ROOT_PASSWORD=12345
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - springboot-mysql-network
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      retries: 10
+      interval: 3s
+      timeout: 30s
+volumes:
+  mysql-data:
+networks:
+  springboot-mysql-network:
+    name: springboot-mysql-network
