@@ -29,8 +29,8 @@ pipeline {
           script{
             
               sh 'pwd'
-
-              sh 'docker -t janmejaym1/cafebean-backend:latest /Cafe-Bean'
+              sh 'cd /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
+              sh 'docker -t janmejaym1/cafebean-backend:latest .'
           }
            
          }
