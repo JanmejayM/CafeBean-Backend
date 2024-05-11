@@ -22,13 +22,7 @@ pipeline {
             }
         }
 
-        stage ('Build') {
-            steps {
-                sh 'pwd'
-                
-                sh 'mvn clean install -f /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
-            }
-        }
+        
         stage ('Docker Build') {
             steps {
                 sh 'pwd'
