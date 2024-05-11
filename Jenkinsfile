@@ -17,7 +17,7 @@ pipeline {
         stage ('Build') {
             steps {
                 sh 'pwd'
-                sh 'cd Cafe-Bean'
+                
                 sh 'mvn clean install /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean/'
             }
         }
