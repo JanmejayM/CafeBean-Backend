@@ -25,7 +25,11 @@ pipeline {
         
         stage ('Docker Build') {
             steps {
-                sh 'pwd'
+                script{
+                     sh 'cd /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
+                    docker.build(janmejaym1/cafebean-backend)
+                }
+               
                 
             }
         }
