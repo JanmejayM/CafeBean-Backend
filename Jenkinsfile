@@ -24,7 +24,11 @@ pipeline {
 
         
         stage ('Docker Build') {
-             agent any
+           agent {
+            docker {
+              image 'maven:3.8.6'
+            }
+      }
       steps {
             sh 'cd /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
              sh 'docker build -t janmejaym1/cafebean-backend:latest .'
