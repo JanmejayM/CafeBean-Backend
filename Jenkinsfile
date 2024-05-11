@@ -29,6 +29,8 @@ pipeline {
           script{
             
               sh 'echo done'
+
+              sh 'docker -v'
           }
            
          }
