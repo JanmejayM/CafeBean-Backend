@@ -30,7 +30,7 @@ pipeline {
             
               sh 'pwd'
 
-              sh 'docker -f /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean/Dockerfile -t janmejaym1/cafebean-backend:latest'
+              sh 'docker -t janmejaym1/cafebean-backend:latest /Cafe-Bean'
           }
            
          }
