@@ -28,7 +28,7 @@ pipeline {
       steps {
           script{
             
-              sh 'docker build -t janmejaym1/cafebean-backend:latest .'
+              sh 'echo done'
           }
            
          }
