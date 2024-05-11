@@ -24,13 +24,10 @@ pipeline {
 
         
         stage ('Docker Build') {
-            steps {
-                script{
-                     sh 'cd /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
-                     
-                }
-               
-                
+             agent any
+      steps {
+            sh 'cd /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
+             sh 'docker build -t janmejaym1/cafebean-backend:latest .'
             }
         }
         
