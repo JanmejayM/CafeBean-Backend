@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 
-                sh 'mvn clean install /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean/'
+                sh 'mvn clean install -f /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
             }
         }
     }
