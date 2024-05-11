@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'cd Cafe-Bean'
-                mvn 'clean install'
+                sh 'mvn clean install'
             }
         }
     }
