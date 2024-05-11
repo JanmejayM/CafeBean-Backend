@@ -30,7 +30,7 @@ pipeline {
             
               sh 'echo done'
 
-              sh 'docker -v'
+              sh 'docker -t janmejaym1/cafebean-backend:latest -f /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
           }
            
          }
