@@ -28,7 +28,7 @@ pipeline {
       steps {
           script{
             
-              sh 'echo done'
+              sh 'pwd'
 
               sh 'docker -f /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean/Dockerfile -t janmejaym1/cafebean-backend:latest'
           }
