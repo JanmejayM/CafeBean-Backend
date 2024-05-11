@@ -2,7 +2,6 @@ pipeline {
     agent any
     tools { 
         maven 'maven 3.8.6' 
-        docker 'docker'
     
     }
     stages {
@@ -28,7 +27,7 @@ pipeline {
             steps {
                 script{
                      sh 'cd /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
-                    docker.build(janmejaym1/cafebean-backend)
+                     
                 }
                
                 
