@@ -7,7 +7,7 @@ pipeline {
     environment{
         APP_NAME="cafebean-backend"
         RELEASE="0.0.1-SNAPSHOT"
-        DOCKER_USER="janmejaym1
+        DOCKER_USER="janmejaym1"
         DOCKER_PASS="docker"
         IMAGE_NAME="${DOCKER_USER}"+"/"+"{$APP_NAME}"
         IMAGE_TAG="${RELEASE}-${BUILD_NUMBER}"
