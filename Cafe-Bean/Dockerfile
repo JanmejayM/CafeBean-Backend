@@ -1,5 +1,4 @@
 FROM openjdk:17
-VOLUME /data
 WORKDIR /springboot-cafebean/
 COPY /target/*.jar /springboot-cafebean/target/
 EXPOSE 8080
