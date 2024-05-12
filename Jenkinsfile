@@ -4,6 +4,15 @@ pipeline {
         maven 'maven 3.8.6' 
     
     }
+    environment{
+        APP_NAME="cafebean-backend"
+        RELEASE="0.0.1-SNAPSHOT"
+        DOCKER_USER="janmejaym1
+        DOCKER_PASS="docker"
+        IMAGE_NAME="${DOCKER_USER}"+"/"+"{$APP_NAME}"
+        IMAGE_TAG="${RELEASE}-${BUILD_NUMBER}"
+
+    }
     stages {
         stage ('Initialize') {
             steps {
@@ -28,9 +37,18 @@ pipeline {
       steps {
           script{
             
-              sh 'pwd'
+              sh 'echo start docker'
               sh 'cd /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
-              sh 'docker build -f /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean/Dockerfile -t janmejaym1/cafebean-backend:latest .'
+              docker.withRegistry('',DOCKER_PASS){
+                  docker_image=docker.build "${IMAGE_NAME}"
+              }
+                docker.withRegistry('',DOCKER_PASS){
+                  docker_image.push ("${IMAGE_TAG}")
+                  docker_image.push ("latest")
+  
+              }
+
+              
           }
            
          }
