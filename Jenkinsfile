@@ -39,10 +39,10 @@ pipeline {
             
               sh 'echo start docker'
               sh 'cd /Users/janmejaymohapatra/.jenkins/workspace/cafebean-backend-pipeline/Cafe-Bean'
-              docker.withRegistry('https://index.docker.io/v1/',DOCKER_PASS){
+              docker.withRegistry('https://hub.docker.com/',DOCKER_PASS){
                   docker_image=docker.build "${IMAGE_NAME}"
               }
-                docker.withRegistry('https://index.docker.io/v1/',DOCKER_PASS){
+                docker.withRegistry('https://hub.docker.com/',DOCKER_PASS){
                   docker_image.push ("${IMAGE_TAG}")
                   docker_image.push ("latest")
   
